@@ -1,5 +1,12 @@
+import { Button } from "./styles";
+
 const Login = () => {
-  return <h1>Página de login</h1>;
+  return (
+    <>
+      <Button>Login</Button>
+      <h1>Página de login</h1>
+    </>
+  );
 };
 
 export default Login;
