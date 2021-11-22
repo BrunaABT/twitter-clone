@@ -1,5 +1,55 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  display: flex;
+`;
+
+export const BackgroundContainer = styled.div`
+  img {
+    height: 100vh;
+    object-fit: cover;
+  }
+`;
+
+export const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  color: black;
+
+  .loginTitle {
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 83px;
+    letter-spacing: -0.8px;
+    margin-top: 60px;
+    margin-bottom: 32px;
+  }
+
+  .loginSubtitle {
+    font-weight: bold;
+    font-size: 31px;
+    line-height: 40px;
+    margin-bottom: 32px;
+  }
+
+  .loginPrivacy {
+    font-size: 11px;
+    line-height: 13px;
+    margin-bottom: 33px;
+  }
+
+  .loginPhrase {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .loginBlue {
+    color: #1da1f2;
+    cursor: pointer;
+  }
+`;
+
 export const Button = styled.button`
   background-color: #fff;
   height: 49px;
@@ -9,4 +59,8 @@ export const Button = styled.button`
   border-radius: 70px;
   border: none;
   padding: 14px, 92px, 14px, 92px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  cursor: pointer;
 `;
