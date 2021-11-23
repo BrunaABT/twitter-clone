@@ -45,7 +45,7 @@ export const RightContainer = styled.div`
   }
 
   .loginBlue {
-    color: #1da1f2;
+    color: ${(props) => props.theme.color.blue};
     cursor: pointer;
   }
 `;
