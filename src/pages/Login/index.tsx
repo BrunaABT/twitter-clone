@@ -4,12 +4,16 @@ import { BackgroundContainer } from "./styles";
 import { RightContainer } from "./styles";
 
 import Background from "../../assets/images/login-bg.png";
-
 import { FaTwitter } from "react-icons/fa";
+import Modal from "../../components/Modal";
 
 const Login: React.FC = () => {
   return (
     <Container>
+      <Modal>
+        <h1>Faça login aqui:</h1>
+        <button>Faça login</button>
+      </Modal>
       <BackgroundContainer>
         <img src={Background} alt="Background do twitter" />
       </BackgroundContainer>
