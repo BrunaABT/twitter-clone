@@ -1,11 +1,29 @@
+import React, { MouseEvent } from "react";
 import { Background } from "./styles";
 import { CreateAccount } from "./styles";
 
-const Modal: React.FC = ({ children }) => {
+interface IProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+const Modal: React.FC<IProps> = ({ children, isOpen, setIsOpen }) => {
+  const onClose = (
+    event: React.MouseEvent<HTMLDivElement, globalThis.MouseEvent>
+  ) => {
+    if (event.target === event.currentTarget) {
+      setIsOpen(false);
+    }
+  };
+
   return (
-    <Background>
-      <CreateAccount>{children}</CreateAccount>
-    </Background>
+    <>
+      {isOpen && (
+        <Background onClick={onClose}>
+          <CreateAccount>{children}</CreateAccount>
+        </Background>
+      )}
+    </>
   );
 };
 
