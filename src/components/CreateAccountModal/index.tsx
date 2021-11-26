@@ -20,6 +20,9 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const isDisabled =
+    name === "" || username === "" || email === "" || password === "";
+
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <CenterImage>
@@ -50,7 +53,7 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </InputContainer>
-      <Button height="47px" width="526px">
+      <Button height="47px" width="526px" isDisabled={isDisabled}>
         Avançar
       </Button>
     </Modal>
