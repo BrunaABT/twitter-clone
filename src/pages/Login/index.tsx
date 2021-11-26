@@ -3,17 +3,22 @@ import { Container } from "./styles";
 import { BackgroundContainer } from "./styles";
 import { RightContainer } from "./styles";
 
+import { useState } from "react";
 import Background from "../../assets/images/login-bg.png";
 import { FaTwitter } from "react-icons/fa";
-import Modal from "../../components/Modal";
+import CreateAccountModal from "../../components/CreateAccountModal";
 
 const Login: React.FC = () => {
+  const [isCreateAccountModalOpen, setIsCreateAccountModalOpen] =
+    useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
   return (
     <Container>
-      <Modal>
-        <h1>Faça login aqui:</h1>
-        <button>Faça login</button>
-      </Modal>
+      <CreateAccountModal
+        isOpen={isCreateAccountModalOpen}
+        setIsOpen={setIsCreateAccountModalOpen}
+      />
       <BackgroundContainer>
         <img src={Background} alt="Background do twitter" />
       </BackgroundContainer>
@@ -23,7 +28,9 @@ const Login: React.FC = () => {
         <h2 className="loginSubtitle">Inscreva-se no Twitter hoje mesmo.</h2>
         <Button>Inscrever-se com Google</Button>
         <Button>Inscrever-se com Apple</Button>
-        <Button>Inscreva-se com número de celular o...</Button>
+        <Button onClick={() => setIsCreateAccountModalOpen(true)}>
+          Inscreva-se com número de celular o...
+        </Button>
         <p className="loginPrivacy">
           Ao se inscrever, você concorda com os{" "}
           <span className="loginBlue"> Termos de Serviço</span> e a
