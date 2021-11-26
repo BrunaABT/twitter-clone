@@ -23,6 +23,8 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
       <InputContainer>
         <Input placeholder="Nome" />
         <Input placeholder="E-mail" type="email" />
+        <Input placeholder="Nome de usuário" />
+        <Input placeholder="Senha" type="password" />
       </InputContainer>
       <Button height="47px" width="526px">
         Avançar
