@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import Modal from "../Modal";
 import { FaTwitter } from "react-icons/fa";
 import Button from "../Button";
@@ -14,6 +15,11 @@ interface IProps {
 }
 
 const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <CenterImage>
@@ -21,10 +27,28 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
       </CenterImage>
       <Title>Criar sua conta</Title>
       <InputContainer>
-        <Input placeholder="Nome" />
-        <Input placeholder="E-mail" type="email" />
-        <Input placeholder="Nome de usuário" />
-        <Input placeholder="Senha" type="password" />
+        <Input
+          placeholder="Nome"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Input
+          placeholder="E-mail"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          placeholder="Nome de usuário"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <Input
+          placeholder="Senha"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </InputContainer>
       <Button height="47px" width="526px">
         Avançar
