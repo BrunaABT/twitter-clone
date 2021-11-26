@@ -5,6 +5,7 @@ interface ITheme {
     darkGray: string;
     borderColor: string;
     black: string;
+    white: string;
   };
 }
 
@@ -15,5 +16,6 @@ export const theme = {
     darkGray: "#253343",
     borderColor: "#2F3336",
     black: "#000",
+    white: "#fff",
   },
 };

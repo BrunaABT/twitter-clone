@@ -12,8 +12,10 @@ export const Center = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 598px;
-  height: 647px;
   background-color: ${(props) => props.theme.color.black};
   border-radius: 20px;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 32px;
+  padding-bottom: 35px;
 `;
