@@ -1,6 +1,6 @@
 import React, { MouseEvent } from "react";
 import { Background } from "./styles";
-import { CreateAccount } from "./styles";
+import { Center } from "./styles";
 
 interface IProps {
   isOpen: boolean;
@@ -20,7 +20,7 @@ const Modal: React.FC<IProps> = ({ children, isOpen, setIsOpen }) => {
     <>
       {isOpen && (
         <Background onClick={onClose}>
-          <CreateAccount>{children}</CreateAccount>
+          <Center>{children}</Center>
         </Background>
       )}
     </>

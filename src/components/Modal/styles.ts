@@ -7,7 +7,7 @@ export const Background = styled.div`
   width: 100vw;
 `;
 
-export const CreateAccount = styled.div`
+export const Center = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
