@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "../Modal";
 import { FaTwitter } from "react-icons/fa";
-import Button from "../Modal/Button";
+import Button from "../Button";
 
 import { CenterImage } from "./styles";
 import { Title } from "./styles";
