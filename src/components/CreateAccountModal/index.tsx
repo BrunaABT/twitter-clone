@@ -25,6 +25,13 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
   const isDisabled =
     name === "" || username === "" || email === "" || password === "";
 
+  const onClose = () => {
+    setName("");
+    setEmail("");
+    setUsername("");
+    setPassword("");
+  };
+
   const createAccount = async () => {
     const validation = validateCreateAccountFields(
       name,
@@ -41,7 +48,7 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} onClose={onClose}>
       <CenterImage>
         <FaTwitter color="#D9D9D9" size="29px" />
       </CenterImage>
