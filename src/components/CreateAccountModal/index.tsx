@@ -8,6 +8,7 @@ import Input from "../Input";
 import { CenterImage } from "./styles";
 import { Title } from "./styles";
 import { InputContainer } from "./styles";
+import validateCreateAccountFields from "../../utils/validateCreateAccountFields";
 
 interface IProps {
   isOpen: boolean;
@@ -22,6 +23,10 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
 
   const isDisabled =
     name === "" || username === "" || email === "" || password === "";
+
+  const createAccount = async () => {
+    console.log(validateCreateAccountFields(name, username, email, password));
+  };
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -53,7 +58,12 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </InputContainer>
-      <Button height="47px" width="526px" isDisabled={isDisabled}>
+      <Button
+        height="47px"
+        width="526px"
+        isDisabled={isDisabled}
+        onClick={createAccount}
+      >
         Avançar
       </Button>
     </Modal>
