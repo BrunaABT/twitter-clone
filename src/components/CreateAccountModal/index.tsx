@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 import { useState } from "react";
 import Modal from "../Modal";
 import { FaTwitter } from "react-icons/fa";
@@ -25,7 +26,18 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
     name === "" || username === "" || email === "" || password === "";
 
   const createAccount = async () => {
-    console.log(validateCreateAccountFields(name, username, email, password));
+    const validation = validateCreateAccountFields(
+      name,
+      username,
+      email,
+      password
+    );
+    console.log(validation);
+    if (typeof validation === "string") {
+      toast.error(validation);
+    } else {
+      toast.success("Conta criada com sucesso!");
+    }
   };
 
   return (
