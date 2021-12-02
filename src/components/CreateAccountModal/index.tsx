@@ -10,6 +10,7 @@ import { CenterImage } from "./styles";
 import { Title } from "./styles";
 import { InputContainer } from "./styles";
 import validateCreateAccountFields from "../../utils/validateCreateAccountFields";
+import { api } from "../../services/api";
 
 interface IProps {
   isOpen: boolean;
@@ -30,6 +31,7 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
     setEmail("");
     setUsername("");
     setPassword("");
+    setIsOpen(false);
   };
 
   const createAccount = async () => {
@@ -39,11 +41,17 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
       email,
       password
     );
-    console.log(validation);
     if (typeof validation === "string") {
       toast.error(validation);
-    } else {
+    }
+
+    // chamar a api para criar um usuário
+    try {
+      await api.post("/users", { name, email, username, password });
       toast.success("Conta criada com sucesso!");
+      onClose();
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Algo deu errado...");
     }
   };
 
