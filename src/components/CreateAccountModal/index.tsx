@@ -22,9 +22,14 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const isDisabled =
-    name === "" || username === "" || email === "" || password === "";
+    name === "" ||
+    username === "" ||
+    email === "" ||
+    password === "" ||
+    loading;
 
   const onClose = () => {
     setName("");
@@ -45,6 +50,8 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
       toast.error(validation);
     }
 
+    setLoading(true);
+
     // chamar a api para criar um usuário
     try {
       await api.post("/users", { name, email, username, password });
@@ -53,6 +60,8 @@ const CreateAccountModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
     } catch (error) {
       toast.error(error?.response?.data?.message || "Algo deu errado...");
     }
+
+    setLoading(false);
   };
 
   return (
