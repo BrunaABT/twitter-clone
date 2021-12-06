@@ -12,6 +12,7 @@ import { InputContainer } from "./styles";
 import validateLoginFields from "../../utils/validateLoginFields";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import { useGlobalState } from "../../context/GlobalContext";
 
 interface IProps {
   isOpen: boolean;
@@ -22,6 +23,8 @@ const LoginModal: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const globalState = useGlobalState();
 
   const navigate = useNavigate();
 

@@ -7,19 +7,22 @@ import { GlobalStyles } from "./styles/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import { ToastContainer } from "react-toastify";
+import { GlobalStateProvider } from "./context/GlobalContext";
 
 const TheRoutes: React.FC = () => {
   return (
-    <Router>
-      <GlobalStyles />
-      <ToastContainer theme="colored" />
-      <ThemeProvider theme={theme}>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-        </Routes>
-      </ThemeProvider>
-    </Router>
+    <GlobalStateProvider>
+      <Router>
+        <GlobalStyles />
+        <ToastContainer theme="colored" />
+        <ThemeProvider theme={theme}>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+          </Routes>
+        </ThemeProvider>
+      </Router>
+    </GlobalStateProvider>
   );
 };
 
